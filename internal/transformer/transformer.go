@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package transformer
 
 import (
-	componentoperatorruntimetypes "github.com/jaroslav-viravec/component-operator-runtime/pkg/types"
+	componentoperatorruntimetypes "github.com/sap/component-operator-runtime/pkg/types"
 
 	operatorv1alpha1 "github.com/jaroslav-viravec/valkey-operator-cop/api/v1alpha1"
 )

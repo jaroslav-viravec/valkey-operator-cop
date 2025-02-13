@@ -11,8 +11,8 @@ import (
 
 	prometheusv1 "github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring/v1"
 
-	"github.com/jaroslav-viravec/component-operator-runtime/pkg/component"
-	componentoperatorruntimetypes "github.com/jaroslav-viravec/component-operator-runtime/pkg/types"
+	"github.com/sap/component-operator-runtime/pkg/component"
+	componentoperatorruntimetypes "github.com/sap/component-operator-runtime/pkg/types"
 )
 
 // ValkeyOperatorSpec defines the desired state of ValkeyOperator.

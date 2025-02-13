@@ -19,8 +19,8 @@ import (
 	helmgenerator "github.com/sap/component-operator-runtime/pkg/manifests/helm"
 	"github.com/sap/component-operator-runtime/pkg/operator"
 
-	operatorv1alpha1 "github.com/sap/valkey-operator-cop/api/v1alpha1"
-	"github.com/sap/valkey-operator-cop/internal/transformer"
+	operatorv1alpha1 "github.com/jaroslav-viravec/valkey-operator-cop/api/v1alpha1"
+	"github.com/jaroslav-viravec/valkey-operator-cop/internal/transformer"
 )
 
 const Name = "valkey-operator-cop.cs.sap.com"

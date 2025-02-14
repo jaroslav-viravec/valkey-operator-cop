@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "valkeyoperator.name" -}}
+{{- define "valkey-operator-cop.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "valkeyoperator.fullname" -}}
+{{- define "valkey-operator-cop.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "valkeyoperator.chart" -}}
+{{- define "valkey-operator-cop.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "valkeyoperator.labels" -}}
-helm.sh/chart: {{ include "valkeyoperator.chart" . }}
-{{ include "valkeyoperator.selectorLabels" . }}
+{{- define "valkey-operator-cop.labels" -}}
+helm.sh/chart: {{ include "valkey-operator-cop.chart" . }}
+{{ include "valkey-operator-cop.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "valkeyoperator.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "valkeyoperator.name" . }}
+{{- define "valkey-operator-cop.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "valkey-operator-cop.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}

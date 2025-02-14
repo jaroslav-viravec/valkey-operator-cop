@@ -1,4 +1,4 @@
 apiVersion: operator.kyma-project.io/v1alpha1
 kind: ValkeyOperator
 metadata:
-  name: valkeyoperator
+  name: valkey-operator

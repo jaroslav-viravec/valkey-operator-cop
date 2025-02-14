@@ -2,12 +2,12 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ include "valkeyoperator.fullname" . }}
+  name: {{ include "valkey-operator-cop.fullname" . }}
   labels:
-    {{- include "valkeyoperator.labels" . | nindent 4 }}
+    {{- include "valkey-operator-cop.labels" . | nindent 4 }}
 spec:
   minAvailable: 1
   selector:
     matchLabels:
-      {{- include "valkeyoperator.selectorLabels" . | nindent 6 }}
+      {{- include "valkey-operator-cop.selectorLabels" . | nindent 6 }}
 {{- end }}

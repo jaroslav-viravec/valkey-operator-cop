@@ -17,7 +17,6 @@ import (
 
 	"github.com/sap/component-operator-runtime/pkg/component"
 	helmgenerator "github.com/sap/component-operator-runtime/pkg/manifests/helm"
-	"github.com/sap/component-operator-runtime/pkg/operator"
 
 	operatorv1alpha1 "github.com/jaroslav-viravec/valkey-operator-cop/api/v1alpha1"
 	"github.com/jaroslav-viravec/valkey-operator-cop/internal/transformer"
@@ -37,7 +36,7 @@ type Operator struct {
 	options Options
 }
 
-var defaultOperator operator.Operator = New()
+var defaultOperator *Operator = New()
 
 func GetName() string {
 	return defaultOperator.GetName()
@@ -84,13 +83,16 @@ func (o *Operator) InitScheme(scheme *runtime.Scheme) {
 }
 
 func (o *Operator) InitFlags(flagset *flag.FlagSet) {
+
 }
 
 func (o *Operator) ValidateFlags() error {
+
 	return nil
 }
 
 func (o *Operator) GetUncacheableTypes() []client.Object {
+
 	return []client.Object{&operatorv1alpha1.ValkeyOperator{}}
 }
 

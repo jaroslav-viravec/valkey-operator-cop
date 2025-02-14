@@ -2,15 +2,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "valkeyoperator.fullname" . }}
+  name: {{ include "valkey-operator-cop.fullname" . }}
   labels:
-    {{- include "valkeyoperator.labels" . | nindent 4 }}
-    valkeyoperator.operator.kyma-project.io/ignored: "true"
+    {{- include "valkey-operator-cop.labels" . | nindent 4 }}
+    valkey-operator-cop.cs.sap.com/ignored: "true"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "valkeyoperator.selectorLabels" . | nindent 6 }}
+      {{- include "valkey-operator-cop.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
       labels:
-        {{- include "valkeyoperator.selectorLabels" . | nindent 8 }}
+        {{- include "valkey-operator-cop.selectorLabels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -46,7 +46,7 @@ spec:
         {{- if not .labelSelector }}
         labelSelector:
           matchLabels:
-            {{- include "valkeyoperator.selectorLabels" $ | nindent 12 }}
+            {{- include "valkey-operator-cop.selectorLabels" $ | nindent 12 }}
         {{- end }}
       {{- end }}
       {{- else }}
@@ -57,14 +57,14 @@ spec:
         whenUnsatisfiable: {{ .Values.defaultHostNameSpreadPolicy  }}
         labelSelector:
           matchLabels:
-            {{- include "valkeyoperator.selectorLabels" . | nindent 12 }}
+            {{- include "valkey-operator-cop.selectorLabels" . | nindent 12 }}
       - maxSkew: 1
         topologyKey: topology.kubernetes.io/zone
         nodeTaintsPolicy: Honor
         whenUnsatisfiable: {{ .Values.defaultZoneSpreadPolicy  }}
         labelSelector:
           matchLabels:
-            {{- include "valkeyoperator.selectorLabels" . | nindent 12 }}
+            {{- include "valkey-operator-cop.selectorLabels" . | nindent 12 }}
       {{- end }}
       {{- with .Values.tolerations }}
       tolerations:
@@ -73,7 +73,7 @@ spec:
       {{- with .Values.priorityClassName }}
       priorityClassName: {{ . }}
       {{- end }}
-      serviceAccountName: {{ include "valkeyoperator.fullname" . }}
+      serviceAccountName: {{ include "valkey-operator-cop.fullname" . }}
       automountServiceAccountToken: true
       containers:
       - name: manager
